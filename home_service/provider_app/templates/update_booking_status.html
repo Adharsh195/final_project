@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for booking in bookings %}
+<tr>
+    <td>{{ booking.customer_name }}</td>
+    <td>{{ booking.service.name }}</td>
+    <td>{{ booking.booking_date }}</td>
+    <td>{{ booking.status }}</td>
+
+    <td>
+        {% if booking.status == "Pending" %}
+            <a href="{% url 'update_booking_status' booking.id 'accept' %}"
+               class="btn btn-success btn-sm">
+               Accept
+            </a>
+
+            <a href="{% url 'update_booking_status' booking.id 'reject' %}"
+               class="btn btn-danger btn-sm">
+               Reject
+            </a>
+        {% else %}
+
+        {% if booking.status == 'confirmed' %}
+<form method="post" action="{% url 'mark_completed' booking.id %}">
+    {% csrf_token %}
+    <button type="submit">Mark as Completed</button>
+</form>
+{% endif %}
+
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+
+{% if booking.status == 'confirmed' %}
+<form method="post" action="{% url 'mark_completed' booking.id %}">
+    {% csrf_token %}
+    <button type="submit">Mark as Completed</button>
+</form>
+{% endif %}
+
+</body>
+</html>

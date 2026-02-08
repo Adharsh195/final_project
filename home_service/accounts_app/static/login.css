@@ -1,0 +1,30 @@
+body {
+    background-image: url("https://img.freepik.com/premium-psd/home-services-website-page-design-template_153148-264.jpg?w=2000"); /* path to image */
+    background-size: cover;       /* cover full screen */
+    background-repeat: no-repeat; /* no repeat */
+    background-position: center;  /* center image */
+    height: 100vh;
+    margin: 0;
+}
+.center-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Background color */
+    background-color: #f2f6f9;
+
+    /* Background image */
+    background-image: url("https://img.freepik.com/premium-psd/home-services-website-page-design-template_153148-264.jpg?w=2000");
+    background-size: cover;        /* Full screen */
+    background-position: center;   /* Center image */
+    background-repeat: no-repeat;
+}
+
+.center-div {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}

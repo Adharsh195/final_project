@@ -1,0 +1,149 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* Main container */
+.container {
+    max-width: 850px;
+}
+
+/* Page title */
+h2 {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Average rating text */
+p strong {
+    font-size: 16px;
+    color: #222;
+}
+
+p {
+    color: #555;
+}
+
+/* Review card */
+.card {
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Card body */
+.card-body {
+    padding: 18px 20px;
+}
+
+/* Service name */
+.card-body h5 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+/* Rating stars */
+.card-body p {
+    margin-bottom: 6px;
+}
+
+.card-body p span,
+.card-body p {
+    font-size: 16px;
+}
+
+/* Star colors */
+.card-body p {
+    color: #f5b301; /* gold */
+}
+
+/* Review comment */
+.card-text {
+    color: #444;
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+/* "No comment" style */
+.card-text.text-muted {
+    font-style: italic;
+    color: #888 !important;
+}
+
+/* Footer text */
+.text-muted {
+    font-size: 13px;
+    color: #777 !important;
+}
+
+/* Spacing between footer lines */
+.card-body small {
+    display: block;
+    margin-top: 3px;
+}
+
+/* Mobile friendly */
+@media (max-width: 576px) {
+    .card-body {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/* Average Rating Box */
+.avg-rating-box {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(135deg, #fff8e1, #ffffff);
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Big number */
+.avg-number {
+    font-size: 56px;
+    font-weight: 700;
+    color: #f5b301;
+    line-height: 1;
+}
+
+/* Stars + text */
+.avg-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avg-stars {
+    font-size: 22px;
+    color: #f5b301;
+    letter-spacing: 2px;
+}
+
+.avg-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Mobile view */
+@media (max-width: 576px) {
+    .avg-number {
+        font-size: 44px;
+    }
+
+    .avg-stars {
+        font-size: 18px;
+    }
+}

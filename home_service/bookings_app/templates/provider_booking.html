@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Select Provider</h2>
+
+{% for ps in providers %}
+    <p>
+        {{ ps.provider.company_name }} |
+        ₹{{ ps.price }}
+        {{ ps.provider_}}
+        <a href="{% url 'book_service' ps.id %}">
+            Book Now
+        </a>
+    </p	us>
+{% endfor %}
+</body>
+</html>

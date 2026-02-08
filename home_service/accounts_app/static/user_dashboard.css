@@ -1,0 +1,118 @@
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 450px;      /* adjust if needed */
+    object-fit: cover;
+}
+
+/* CENTERED CAPTION */
+.caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    padding: 15px 30px;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Hero Section */
+.about-hero {
+    background: linear-gradient(to right, #2563eb, #1e40af);
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* Content Section */
+.about-content {
+    padding: 50px 0;
+}
+
+.about-content h2 {
+    color: #1e40af;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.about-content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.about-content ul li {
+    margin-bottom: 8px;
+}
+
+/* Features */
+.features {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.feature-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+.feature-box h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.feature-box p {
+    font-size: 15px;
+}

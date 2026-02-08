@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Successful</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .success-card {
+            background: #fff;
+            padding: 40px;
+            width: 400px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: #28a745;
+        }
+
+        h2 {
+            margin-top: 15px;
+            color: #333;
+        }
+
+        .details {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .details p {
+            margin: 8px 0;
+        }
+
+        .btn {
+            margin-top: 25px;
+            display: inline-block;
+            padding: 12px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="success-card">
+    <div class="success-icon">✅</div>
+    <h2>Booking Confirmed!</h2>
+    <p>Your payment was successful.</p>
+
+    <div class="details">
+        <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+        <p><strong>Service:</strong> {{ booking.provider_service.service_name }}</p>
+        <p><strong>Provider:</strong> {{ booking.provider_service.provider.name }}</p>
+        <p><strong>Amount Paid:</strong> ₹{{ booking.provider_service.price }}</p>
+    </div>
+
+    <a href="{% url 'user_bookings' %}" class="btn">View My Bookings</a>
+</div>
+
+</body>
+</html>

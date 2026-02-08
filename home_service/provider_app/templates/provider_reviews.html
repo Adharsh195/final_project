@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'provider_reviews.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+     <nav class="navbar bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">HomeCare</span>
+  </div>
+</nav>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'provider_dashboard' %}">Back</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<center>
+<div class="container mt-4">
+    <h2>Customer Reviews</h2>
+
+   <div class="avg-rating-box">
+    <div class="avg-number">
+        {{ average_rating|floatformat:1 }}
+    </div>
+    <div class="avg-details">
+        <div class="avg-stars">
+            {% for i in "12345" %}
+                {% if forloop.counter <= average_rating %}
+                    ★
+                {% else %}
+                    ☆
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="avg-text">Average Rating</div>
+    </div>
+</div>
+
+    <hr>
+
+    {% for review in reviews %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ review.provider_service.name }}
+                </h5>
+
+                <p>
+                    Rating:
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= review.rating %}
+                            ⭐
+                        {% else %}
+                            ☆
+                        {% endif %}
+                    {% endfor %}
+                </p>
+
+                {% if review.comment %}
+                    <p class="card-text">{{ review.comment }}</p>
+                {% else %}
+                    <p class="text-muted">No comment</p>
+                {% endif %}
+
+                <small class="text-muted">
+                    Reviewed by {{ review.user.username }}
+                    on {{ review.created_at|date:"d M Y" }}
+                </small>
+            </div>
+        </div>
+    {% empty %}
+        <p>No reviews received yet.</p>
+    {% endfor %}
+</div>
+</center>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

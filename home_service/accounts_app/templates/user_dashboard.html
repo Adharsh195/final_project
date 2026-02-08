@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'user_dashboard.css' %}">
+</head>
+<body>
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">HomeCare</span>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Hello User</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <a href="{% url 'logout_view' %}">logout</a>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar" style="background-color: #e3f2fd;" data-bs-theme="light">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'user_dashboard' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'service_list' %}">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'user_bookings' %}">Bookings History</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</nav>
+
+      <div class="image-container">
+    <img src="https://thewowstyle.com/wp-content/uploads/2015/06/beautiful-living-room-home-interior-design-ideas.jpg" alt="Home">
+    <div class="caption">
+        <u><h1>HomeCare</h1></u>
+        <h5>"One platform.All home services"</h5>
+    </div>
+</div>
+<br><br>
+<div>
+  <div class="row">  
+  <div class="d-flex flex-wrap justify-content-center gap-4">
+  <div class="card" style="width: 18rem;">
+  <img src="https://www.germinit.com/wp-content/uploads/2023/02/Adding-new-date-field-scaled-2.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <br><br><br>
+    <center>
+    <h5 class="card-title">Pending Bookings</h5>
+    <p class="card-text"></p>
+    <a href="{% url 'Pending_bookings' %}" class="btn btn-primary">View</a>
+    </center>
+  </div>
+</div>
+
+  <div class="card" style="width: 18rem;">
+  <img src="https://tse4.mm.bing.net/th/id/OIP.a4l6QZe6tczBoI4bTZTCIgHaEz?rs=1&pid=ImgDetMain&o=7&rm=3" class="card-img-top" alt="...">
+  <div class="card-body">
+    <br><br><br>
+    <center>
+    <h5 class="card-title">Confirmed Bookings</h5>
+    <p class="card-text"></p>
+    <a href="{% url 'confirmed_bookings' %}" class="btn btn-primary">View</a>
+    </center>
+  </div>
+</div>
+
+  <div class="card" style="width: 18rem;">
+  <img src="https://static.vecteezy.com/system/resources/previews/026/131/497/non_2x/cartoon-rejected-seal-stamp-icon-in-comic-style-rejected-sign-illustration-pictogram-banner-business-splash-effect-concept-vector.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <br><br><br><br>
+    <center>
+    <h5 class="card-title">Rejected Bookings</h5>
+    <p class="card-text"></p>
+    <a href="{% url 'rejected_bookings' %}" class="btn btn-primary">View</a>
+    </center>
+  </div>
+</div>
+</div>
+</div>
+<br><br>
+ <section class="about-hero">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Your trusted home service marketplace</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <h2>Who We Are</h2>
+            <p>
+                <strong>HomeCare</strong> is a home service marketplace that connects customers
+                with skilled and verified service professionals. We make booking home services
+                simple, transparent, and reliable.
+            </p>
+
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to simplify home services by providing a secure and user-friendly
+                platform where customers can easily find trusted professionals for their daily needs.
+            </p>
+
+            <h2>What We Offer</h2>
+            <ul>
+                <li>Plumbing, electrical, cleaning, and repair services</li>
+                <li>Easy online booking and scheduling</li>
+                <li>Secure payments</li>
+                <li>Ratings and reviews for quality assurance</li>
+            </ul>
+
+            <h2>Why Choose Us?</h2>
+            <div class="features">
+                <div class="feature-box">
+                    <h3>Verified Professionals</h3>
+                    <p>All service providers are carefully verified to ensure quality and trust.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden charges. What you see is what you pay.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Easy & Secure</h3>
+                    <p>Book services and make payments safely through our platform.</p>
+                </div>
+            </div>
+
+            <h2>Our Vision</h2>
+            <p>
+                We aim to become the most reliable home service platform, where booking a service
+                is as easy as a few clicks.
+            </p>
+        </div>
+    </section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

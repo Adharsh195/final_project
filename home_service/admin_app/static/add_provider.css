@@ -1,0 +1,118 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page background */
+body {
+    margin: 0;
+    padding-top: 70px; /* space for navbar */
+    background-color: #f4f6f9;
+}
+
+/* Navbar (if not already styled by Bootstrap) */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Form container */
+form {
+    background: #ffffff;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px 35px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Section headings */
+form h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+}
+
+/* Labels */
+form label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+/* Inputs & textarea */
+form input[type="text"],
+form input[type="password"],
+form input[type="number"],
+form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+}
+
+/* Radio buttons section */
+form input[type="radio"] {
+    margin-right: 8px;
+}
+
+form .service-option {
+    margin-bottom: 10px;
+}
+
+/* Price input */
+form input[type="number"] {
+    appearance: textfield;
+}
+
+/* Submit button */
+form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+form button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(13, 110, 253, 0.35);
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+    form {
+        margin: 20px;
+        padding: 25px;
+    }
+}

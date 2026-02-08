@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'view_bookings.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+     <nav class="navbar bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">HomeCare</span>
+  </div>
+</nav>
+
+<nav class="navbar bg-body-tertiary">
+  <form class="container-fluid justify-content-start">
+    <a href="{% url 'view_services' %}" class="btn btn-sm btn-outline-secondary">Back</a>
+  </form>
+</nav>
+<br><br>
+    <h2>bookings</h2>
+
+{% if bookings %}
+<table class="table table-striped">
+    <tr>
+        <th>Customer</th>
+        <th>Phone</th>
+        <th>Service</th>
+        <th>Status</th>
+        <th>Date</th>
+    </tr>
+
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ booking.customer_name }}</td>
+        <td>{{ booking.customer_phone }}</td>
+        <td>{{ booking.service_name }}</td>
+        <td>{{ booking.status }}</td>
+        <td>{{ booking.booking_date }}</td>
+        <td>
+        {% if booking.status == "Pending" %}
+            <a href="{% url 'update_booking_status' booking.id 'Accepted' %}"
+               class="btn btn-success btn-sm">
+               Accept
+            </a>
+
+            <a href="{% url 'update_booking_status' booking.id 'Rejected' %}"
+               class="btn btn-danger btn-sm">
+               Reject
+            </a>
+            {% elif booking.status == 'Confirmed' %}
+    <a href="{% url 'update_booking_status' booking.id 'Completed' %}"
+       class="btn btn-primary btn-sm">
+        Mark Completed
+    </a>
+
+
+        {% else %}
+          -
+        {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No bookings yet</p>
+{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

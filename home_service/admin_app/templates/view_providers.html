@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+     <nav class="navbar bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">HomeCare</span>
+  </div>
+</nav>
+
+<nav class="navbar" style="background-color: #e3f2fd;" data-bs-theme="light">
+  <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">providers</span>
+  </div>
+</nav>
+</nav>
+
+<nav class="navbar bg-body-tertiary">
+  <form class="container-fluid justify-content-start">
+    <a href="{% url 'view_services' %}" class="btn btn-sm btn-outline-secondary">Back</a>
+  </form>
+</nav>
+<br><br>
+
+    <div class="card">
+      {% for provider in providers %}
+  <h5 class="card-header"></h5>
+  <div class="card-body">
+    <h5 class="card-title"><strong>{{ provider.provider.company_name }}</strong><br></h5>
+    <div class="card-text">  {{ provider.provider.phone }}<br>
+    <div class="card-text">  {{ provider.provider.address }}<br>
+
+       <p class="provider-rating">
+    ⭐
+    {% if provider.avg_rating %}
+        <span class="rating-number">
+          Rating : {{ provider.avg_rating|floatformat:1 }} / 5
+        </span>
+    {% else %}
+        <span class="no-rating">No ratings yet</span>
+    {% endif %}
+</p>
+
+      <div class="mt-2">
+    <form action="{% url 'delete_provider' provider.id %}" method="POST"
+          onsubmit="return confirm('Are you sure,you want to delete?');">
+        {% csrf_token %}
+        <button class="btn btn-danger btn-sm">Delete</button>
+    </form>
+    <br>
+
+    <a href="{% url 'view_bookings' provider.provider.id %}"  class="btn btn-primary btn-sm">view booking</a>
+
+    <a href="{% url 'admin_edit_provider_profile' provider.id %}"
+   class="btn btn-primary btn-sm">
+   Edit Profile
+</a>
+
+</div>
+      </div>
+    </div></div>
+    {% endfor %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

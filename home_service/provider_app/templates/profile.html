@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Provider Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+</head>
+<body>
+<nav class="navbar bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">HomeCare</span>
+  </div>
+</nav>
+
+<nav class="navbar" style="background-color: #e3f2fd;" data-bs-theme="light">
+  <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Hello Provider</span>
+  </div>
+</nav>
+</nav>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'provider_dashboard' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'provider_bookings' %}">Bookings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'provider_profile' %}">profile
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="card">
+    <h2>{{ provider.company_name }}</h2>
+
+    <div class="info">
+        <p><strong>Phone:</strong> {{ provider.phone }}</p>
+        <p><strong>Address:</strong> {{ provider.address }}</p>
+    </div>
+
+    <h3>Services</h3>
+
+    {% if services %}
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Price</th>
+        </tr>
+        {% for s in services %}
+        <tr>
+            <td>{{ s.service.name }}</td>
+            <td>₹ {{ s.price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No services added yet.</p>
+    {% endif %}
+    <center>
+    <a href="{% url 'edit_provider_profile' %}">
+    <button style="margin-top:10px;"  class="btn btn-primary">Edit Profile</button>
+</a></center>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

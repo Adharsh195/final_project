@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'provider_dashboard.css' %}">
+</head>
+<body>
+
+ <nav class="navbar bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">HomeCare</span>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Hello Provider</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <a href="{% url 'logout_view' %}">logout</a>
+      </span>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'provider_dashboard' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'provider_bookings' %}">Bookings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'provider_profile' %}">profile
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="image-container">
+    <img src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?cs=srgb&dl=landscape-sky-clouds-259588.jpg&fm=jpg" alt="Home">
+    <div class="caption">
+        <strong>HomeCare</strong>
+        <h3>"Grow your business with every booking"</h3>
+    </div>
+</div>
+
+
+<h3>{{ provider.company_name }}</h3>
+
+{% if avg_rating %}
+  ⭐ {{ avg_rating|floatformat:1 }} / 5 ({{ total_reviews }} reviews)
+{% else %}
+  <p>No ratings yet</p>
+{% endif %}
+<div>
+  <div class="row">  
+  <div class="d-flex flex-wrap justify-content-center gap-4">
+  <div class="card" style="width: 18rem;">
+  <img src="https://www.unvls.com/wp-content/uploads/2022/02/NEW-1024x651.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <br><br><br>
+    <center>
+    <h5 class="card-title">New Bookings</h5>
+    <p class="card-text"></p>
+    <a href="{% url 'provider_new_bookings' %}" class="btn btn-primary">View</a>
+    </center>
+  </div>
+</div>
+
+ <div class="card" style="width: 18rem;">
+  <img src="https://img.freepik.com/premium-vector/confirmed-sign_592324-29914.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <center>
+    <h5 class="card-title">Confirmed Bookings</h5>
+    <p class="card-text"></p>
+    <a href="{% url 'provider_confirmed_bookings' %}" class="btn btn-primary">View</a>
+    </center>
+  </div>
+</div>
+
+
+ <div class="card" style="width: 18rem;">
+  <img src="https://as2.ftcdn.net/v2/jpg/02/06/88/73/1000_F_206887337_BtxrHSpuHteO5dHRv1e1wgcLEvvyEyEF.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <br><br><br><br><center>
+    <h5 class="card-title">Rating & Reviews</h5>
+    <p class="card-text"></p>
+    <a href="{% url 'provider_reviews' %}" class="btn btn-primary">View</a>
+   </center>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="about-container">
+
+    <div class="about-header">
+        <h1>About Us</h1>
+        <p>Empowering local professionals to grow their business</p>
+    </div>
+
+    <div class="about-section">
+        <p>
+            Welcome to <strong>HomeCare</strong>, a trusted home service
+            marketplace designed to help skilled service providers connect with customers,
+            manage bookings easily, and grow their business with confidence.
+        </p>
+    </div>
+
+    <div class="about-section">
+        <h2>Why We Exist</h2>
+        <p>
+            We understand the challenges service professionals face—finding regular work,
+            managing customers, and receiving timely payments. Our platform simplifies
+            everything by bringing genuine customers directly to you.
+        </p>
+    </div>
+
+    <div class="about-section">
+        <h2>What We Offer Providers</h2>
+        <ul class="features-list">
+            <li>Increased visibility to nearby customers</li>
+            <li>Easy booking and schedule management</li>
+            <li>Secure and transparent payments</li>
+            <li>Ratings and reviews to build trust</li>
+            <li>Fair opportunities for all professionals</li>
+        </ul>
+    </div>
+
+    <div class="about-section">
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is to support local service providers by offering digital tools that
+            increase income, simplify work, and help build long-term customer relationships.
+        </p>
+    </div>
+
+    <div class="about-section">
+        <h2>Who Can Join?</h2>
+        <p>
+            Electricians, plumbers, cleaners, AC technicians, painters, carpenters,
+            appliance repair professionals, and more. If you deliver quality service,
+            this platform is for you.
+        </p>
+    </div>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
