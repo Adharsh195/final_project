@@ -61,7 +61,7 @@ def add_provider(request):
         )
 
         messages.success(request, "Provider registered successfully")
-        return redirect('login')
+        return redirect('admin_dashboard')
 
     return render(request, 'add_provider.html', {
         'services': services
