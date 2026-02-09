@@ -167,6 +167,3 @@ def admin_delete_service(request, service_id):
 
 from django.contrib.auth import logout
 
-def logout_view(request):
-    logout(request)
-    return redirect('login')
